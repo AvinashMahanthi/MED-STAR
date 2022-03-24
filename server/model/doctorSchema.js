@@ -26,6 +26,18 @@ const doctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  experience: {
+    type: Number,
+    required: true,
+  },
+  keywords: {
+    type: Array,
+    required: true,
+  },
+  consultationFee: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = new mongoose.model("Doctor", doctorSchema);

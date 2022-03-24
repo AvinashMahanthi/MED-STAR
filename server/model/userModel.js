@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { roles } = require("../utils/constants");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -10,33 +11,35 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  aadharNumber: {
-    type: Number,
-    required: true,
-  },
+  // aadharNumber: {
+  //   type: Number,
+  //   required: true,
+  // },
   mobileNumber: {
     type: Number,
     required: true,
   },
-  address: {
+  gender: {
     type: String,
     required: true,
   },
-  city: {
-    type: String,
+  pincode: {
+    type: Number,
     required: true,
   },
   state: {
     type: String,
     required: true,
   },
-  // role: {
-  //   user,
-  // },
+  password: {
+    type: String,
+    required: true,
+  },
+  role: {
+    type: String,
+    enum: [roles.admin, roles.doctor, roles.user],
+    default: roles.user,
+  },
 });
 
 module.exports = new mongoose.model("User", userSchema);
