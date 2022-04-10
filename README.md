@@ -18,13 +18,13 @@ npm i
 ### Run Frontend in LocalHost
 
 ```
-cd client
+cd client/
 npm start
 ```
 
 ### Run Backend in LocalHost
 
 ```
-cd server
+cd server/
 nodemon app
 ```

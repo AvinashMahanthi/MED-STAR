@@ -1,4 +1,10 @@
+const express = require("express");
 const router = require("express").Router();
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
+
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 router.get("/signup", (req, res) => {
   res.send("This is auth signUp");
@@ -10,51 +16,36 @@ router.get("/signin", (req, res) => {
 
 // USER SIGNUP
 router.post("/signup", (req, res) => {
-  const {
-    email,
-    name,
-    password,
-    confirmPassword,
-    aadharNumber,
-    mobileNumber,
-    address,
-    city,
-    state,
-  } = req.body;
-  if (!email || !password || !name || !confirmPassword) {
+  const { name, email, phone, gender, pincode, state, password } = req.body;
+  if (!name || !email || !phone || !gender || !pincode || !state || !password) {
     return res.status(422).json({ error: "please add all the fields" });
   }
-  if (password == confirmPassword) {
-    User.findOne({ email: email }).then((savedUser) => {
-      if (savedUser) {
-        return res.json({ msg: "User already Exists!" });
-      }
-      bcrypt.hash(password, 10).then((hashedPassword) => {
-        const registerUser = new User({
-          email,
-          name,
-          password: hashedPassword,
-          aadharNumber,
-          mobileNumber,
-          address,
-          city,
-          state,
-        });
-        registerUser
-          .save()
-          // .then((data) => {
-          //    console.log(data);
-          // })
-          .catch((err) => {
-            console.log(err);
-          });
-        res.json({ msg: "Login Information saved!" });
+  User.findOne({ email: email }).then((savedUser) => {
+    if (savedUser) {
+      return res.json({ msg: "User already Exists!" });
+    }
+    bcrypt.hash(password, 10).then((hashedPassword) => {
+      const registerUser = new User({
+        email,
+        name,
+        password: hashedPassword,
+        pincode,
+        phone,
+        gender,
+        state,
       });
+      registerUser
+        .save()
+        // .then((data) => {
+        //    console.log(data);
+        // })
+        .catch((err) => {
+          console.log(err);
+        });
+      res.json({ msg: "Login Information saved!" });
     });
-    // console.log(registerUser);
-  } else {
-    res.json({ msg: "Password and confirm password must be same!" });
-  }
+  });
+  // console.log(registerUser);
 });
 
 // USER SIGNIN
