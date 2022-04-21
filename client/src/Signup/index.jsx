@@ -2,6 +2,15 @@ import { React, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
+import {
+  Container,
+  FormWrap,
+  FormContent,
+  FormController,
+  FormH1,
+  FormLabel,
+} from "./SignupElements";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -50,100 +59,138 @@ const Signup = () => {
 
   return (
     <>
-      <div className="container">
-        <h3>Signup for your account</h3>
-        <Form onSubmit={handleOnSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+      <Container>
+        <FormWrap>
+          <FormContent>
+            <FormController action="#">
+              <div className="container">
+                <FormH1>
+                  <h3 style={{ fontWeight: "bold" }}>Signup</h3>
+                </FormH1>
+                <Form onSubmit={handleOnSubmit}>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Email
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {/* <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text> */}
+                  </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Name
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Phone Number"
-              name="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </Form.Group>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Phone Number
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="number"
+                      placeholder="Phone Number"
+                      name="phone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Gender</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Gender"
-              name="gender"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-            />
-          </Form.Group>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Gender
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="text"
+                      placeholder="Gender"
+                      name="gender"
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                    />
+                  </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Pincode</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Pincode"
-              name="pincode"
-              value={pincode}
-              onChange={(e) => setPincode(e.target.value)}
-            />
-          </Form.Group>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Pincode
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="number"
+                      placeholder="Pincode"
+                      name="pincode"
+                      value={pincode}
+                      onChange={(e) => setPincode(e.target.value)}
+                    />
+                  </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>State</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="State"
-              name="state"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-            />
-          </Form.Group>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        State
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="text"
+                      placeholder="State"
+                      name="state"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                    />
+                  </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            SignUp
-          </Button>
-        </Form>
-      </div>
-      <ToastContainer
-        autoClose={5000}
-        position="top-center"
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Password
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="text"
+                      placeholder="Password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    SignUp
+                  </Button>
+                </Form>
+              </div>
+              <ToastContainer
+                autoClose={5000}
+                position="top-center"
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+            </FormController>
+          </FormContent>
+        </FormWrap>
+      </Container>
     </>
   );
 };
