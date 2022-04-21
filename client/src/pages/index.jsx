@@ -6,7 +6,10 @@ import { homeObjOne, homeObjTwo, homeObjThree } from "../components/Info/Data";
 import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
-//import ReactCardSlider from "react-card-slider-component";
+
+import ReactCardSlider from "react-card-slider-component";
+import SearchDoctors from "../components/SearchDoctors";
+
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +77,7 @@ const Home = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <Hero />
+      <SearchDoctors />
 
       <Info {...homeObjOne} />
       <Info {...homeObjTwo} />

@@ -32,4 +32,5 @@ app.listen(port, () => {
 });
 
 app.use("/", require("./routes/index.route"));
+app.use("/doc", require("./routes/doc.route"));
 app.use("/auth", require("./routes/auth.route"));

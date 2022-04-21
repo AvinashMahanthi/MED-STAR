@@ -2,6 +2,7 @@ const express = require("express");
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const keys = require("../keys");
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -49,30 +50,93 @@ router.post("/signup", (req, res) => {
 });
 
 // USER SIGNIN
-router.post("/signin", async (req, res) => {
+router.post("/signin", (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(422).json({ error: "please add all the fields" });
+    return res.status(422).json({ error: "please add email or password" });
   }
-  console.log(req.body);
-  const user = await User.findOne({ email });
-  console.log(user);
-  if (user) {
+  User.findOne({ email: email }).then((savedUser) => {
+    if (!savedUser) {
+      return res.status(422).json({ error: "Invalid Email or password" });
+    }
     bcrypt
-      .compare(password, user.password)
+      .compare(password, savedUser.password)
       .then((doMatch) => {
         if (doMatch) {
-          const token = jwt.sign({ _id: user._id }, JWT_SECRET);
-          return res.json({ msg: "Logged in sucessfully!", token });
+          const token = jwt.sign({ _id: savedUser._id }, keys.JWT_SECRET);
+          const { _id, email, name, pincode, phone, gender, state, role } =
+            savedUser;
+          res.json({
+            token,
+            user: { _id, name, email, phone, gender, pincode, state, role },
+          });
         } else {
-          return res.status(422).json({ error: "Invalid Email or Password" });
+          return res.status(422).json({ error: "Invalid Email or password" });
         }
       })
-      .catch((e) => {
-        console.log(e);
-        res.status(400).send(e);
+      .catch((err) => {
+        console.log(err);
       });
-  }
+  });
 });
+
+// router.get("/CreateDoctor", (req, res) => {
+//   res.send("This is auth signIn");
+// });
+
+// router.post("/CreateDoctor", (req, res) => {
+//   const {
+//     name,
+//     email,
+//     phone,
+//     specialization,
+//     hospital,
+//     experience,
+//     consultationFee,
+//     keywords,
+//     password,
+//   } = req.body;
+//   if (
+//     !name ||
+//     !email ||
+//     !phone ||
+//     !specialization ||
+//     !hospital ||
+//     !experience ||
+//     !consultationFee ||
+//     !keywords ||
+//     !password
+//   ) {
+//     return res.status(422).json({ error: "please add all the fields" });
+//   }
+//   User.findOne({ email: email }).then((savedUser) => {
+//     // if (savedUser) {
+//     //   return res.json({ msg: "User already Exists!" });
+//     // }
+//     bcrypt.hash(password, 10).then((hashedPassword) => {
+//       const registerDoctor = new Doctor({
+//         name,
+//         email,
+//         phone,
+//         specialization,
+//         hospital,
+//         experience,
+//         consultationFee,
+//         keywords,
+//         password,
+//       });
+//       registerDoctor
+//         .save()
+//         // .then((data) => {
+//         //    console.log(data);
+//         // })
+//         .catch((err) => {
+//           console.log(err);
+//         });
+//       res.json({ msg: "Login Information saved!" });
+//     });
+//   });
+//   // console.log(registerUser);
+// });
 
 module.exports = router;
