@@ -1,6 +1,16 @@
 import { React, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import Navbar from "../components/Navbar";
+
+import {
+  Container,
+  FormWrap,
+  FormContent,
+  FormController,
+  FormH1,
+  FormLabel,
+} from "./SigninElements";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -42,44 +52,61 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="container">
-        <h3>Login To your account</h3>
-        <Form onSubmit={handleOnSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <Form.Label>Password</Form.Label>
-
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-        <ToastContainer
-          autoClose={5000}
-          position="top-center"
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </div>
+      <Container>
+        {/* <Navbar /> */}
+        <FormWrap>
+          <FormContent>
+            <FormController action="#">
+              <div className="container">
+                <FormH1>
+                  <h2 style={{ fontWeight: "bold" }}>Login To your account</h2>
+                </FormH1>
+                <Form onSubmit={handleOnSubmit}>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Email
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {/* <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text> */}
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <FormLabel>
+                      <Form.Label style={{ fontWeight: "bold" }}>
+                        Password
+                      </Form.Label>
+                    </FormLabel>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
+                <ToastContainer
+                  autoClose={5000}
+                  position="top-center"
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
+              </div>
+            </FormController>
+          </FormContent>
+        </FormWrap>
+      </Container>
     </>
   );
 };

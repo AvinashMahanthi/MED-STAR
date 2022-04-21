@@ -37,7 +37,7 @@ const Navbar = ({ toggle }) => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
-            <NavLogo to="/" onClick={toggleHome}>
+            <NavLogo scrollNav={scrollNav} to="/" onClick={toggleHome}>
               MedStar
             </NavLogo>
             <MobileIcon onClick={toggle}>
@@ -46,6 +46,7 @@ const Navbar = ({ toggle }) => {
             <NavMenu>
               <NavItem>
                 <NavLinks
+                  scrollNav={scrollNav}
                   to="about"
                   smooth={true}
                   duration={500}
@@ -58,6 +59,7 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
+                  scrollNav={scrollNav}
                   to="discover"
                   smooth={true}
                   duration={500}
@@ -70,6 +72,7 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
+                  scrollNav={scrollNav}
                   to="services"
                   smooth={true}
                   duration={500}
@@ -80,7 +83,7 @@ const Navbar = ({ toggle }) => {
                   Services
                 </NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks
                   to="footer"
                   smooth={true}
@@ -91,17 +94,18 @@ const Navbar = ({ toggle }) => {
                 >
                   Health
                 </NavLinks>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
                 <NavLinks
-                  to="signup"
+                  scrollNav={scrollNav}
+                  to="main-slider-container"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Sign Up
+                  Find Doctors
                 </NavLinks>
               </NavItem>
             </NavMenu>
