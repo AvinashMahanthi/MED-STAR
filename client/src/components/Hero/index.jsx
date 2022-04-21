@@ -33,7 +33,7 @@ const Hero = () => {
         </HeroP>
         <HeroBtnWrapper>
           <Button
-            to="signup"
+            to="Signup"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"

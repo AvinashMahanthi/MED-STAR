@@ -14,7 +14,7 @@ const doctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  mobileNumber: {
+  phone: {
     type: Number,
     required: true,
   },
@@ -22,6 +22,7 @@ const doctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // hospital: [{ type: ObjectId, ref: "Hospital" }],
   hospital: {
     type: String,
     required: true,
@@ -40,4 +41,7 @@ const doctorSchema = new mongoose.Schema({
   },
 });
 
-module.exports = new mongoose.model("Doctor", doctorSchema);
+var Doctor = mongoose.model("Doctor", doctorSchema);
+
+module.exports.model = Doctor;
+module.exports.Schema = doctorSchema;
