@@ -1,26 +1,26 @@
-import styled from 'styled-components'
-import { Link as LinkR } from 'react-router-dom'
-import { Link as LinkS } from 'react-scroll'
-import { FaTimes } from 'react-icons/fa'
+import styled from "styled-components";
+import { Link as LinkR } from "react-router-dom";
+import { Link as LinkS } from "react-scroll";
+import { FaTimes } from "react-icons/fa";
 
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: #0d0d0d;
+  background: #fff;
   display: grid;
   align-items: center;
   top: 0;
   left: 0;
   transition: 0.3s ease-in-out;
-  opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-  top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
-`
+  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
+  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+`;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #fff;
-`
+  color: #000;
+`;
 export const Icon = styled.div`
   position: absolute;
   top: 1.2rem;
@@ -29,20 +29,20 @@ export const Icon = styled.div`
   font-size: 2rem;
   cursor: pointer;
   outline: none;
-`
+`;
 export const SidebarWrapper = styled.div`
   color: #fff;
-`
+`;
 export const SidebarMenu = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 80px);
+  grid-template-rows: repeat(5, 80px);
   text-align: center;
 
-  @media  screen and (max-width: 480px) {
-    grid-template-rows: repeat(6, 60px);
+  @media screen and (max-width: 480px) {
+    grid-template-rows: repeat(5, 60px);
   }
-`
+`;
 export const SidebarLink = styled(LinkS)`
   display: flex;
   align-items: center;
@@ -52,26 +52,28 @@ export const SidebarLink = styled(LinkS)`
   list-style: none;
   transition: 02s ease-in-out;
   text-decoration: none;
-  color: #fff;
+  color: #010606;
   cursor: pointer;
+  padding-right: 20px;
 
   &:hover {
-    color: #01bf71;
+    color: #1167b1;
     transition: 0.2s ease-in-out;
   }
-`
+`;
 export const SideBtnWrap = styled.div`
   display: flex;
   justify-content: center;
-`
+  padding-bottom: 15px;
+`;
 export const SidebarRoute = styled(LinkR)`
   border-radius: 50px;
-  background: #01bf71;
+  background: #1167b1;
   white-space: nowrap;
   padding: 16px 64px;
-  color: #010606;
+  color: #fff;
   font-size: 16px;
-  outline:  none;
+  outline: none;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -82,4 +84,4 @@ export const SidebarRoute = styled(LinkR)`
     background: #fff;
     color: #010606;
   }
-`
+`;

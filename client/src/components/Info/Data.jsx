@@ -1,7 +1,7 @@
 export const homeObjOne = {
   id: "about",
-  lightBg: false,
-  lightText: true,
+  lightBg: true,
+  lightText: false,
   lighttextDesc: true,
   topLine: "About Us",
   headline: "Why MedStar?",
@@ -30,7 +30,7 @@ export const homeObjTwo = {
   buttonLabel: "see all articles",
   imgStart: true,
   img: require("../../images/svg-55.svg").default,
-  alt: "Piggybanck",
+  alt: "Articles",
   dark: false,
   primary: false,
   darkText: true,
