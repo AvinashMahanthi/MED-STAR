@@ -3,11 +3,13 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   display: grid;
   z-index: 1;
-  height: 800px;
+  height: 500px;
   width: 100%auto;
   margin-top: 5rem;
   padding: 0 24px;
   justify-content: center;
+  margin-left: 4rem;
+  margin-right: 4rem;
 
   @media screen and (max-width: 768px) {
     height: 1100px;
@@ -26,6 +28,7 @@ export const SearchContainer = styled.div`
   overflow-x: scroll;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  margin-top: 2rem;
 
   @media screen and (max-width: 768px) {
     height: 1100px;
@@ -38,7 +41,7 @@ export const SearchContainer = styled.div`
 
 export const SearchWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 15px;
   padding: 0 50px;
