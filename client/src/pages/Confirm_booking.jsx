@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import Sidebar from "../components/SideBar";
-// import Info from "../components/Info";
-import SearchDoctors from "../components/SearchDoctors";
+import Confirm_Booking from "../components/confirm_Booking";
 
 const Consult = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +12,7 @@ const Consult = () => {
 
   return (
     <div>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar dynamic={false} />
-      <SearchDoctors />
+      <Confirm_Booking />
 
       <Footer />
     </div>

@@ -3,10 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import Sidebar from "../components/SideBar";
-// import Info from "../components/Info";
-import SearchDoctors from "../components/SearchDoctors";
+import Info from "../components/Info";
+import { homeObjTwo } from "../components/Info/Data";
+import SearchSpecialist from "../components/SearchSpecialist";
 
-const Consult = () => {
+const Specialists = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -17,11 +18,11 @@ const Consult = () => {
     <div>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar dynamic={false} />
-      <SearchDoctors />
+      <SearchSpecialist />
 
       <Footer />
     </div>
   );
 };
 
-export default Consult;
+export default Specialists;

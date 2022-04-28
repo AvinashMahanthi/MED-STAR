@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 import {
   Container,
@@ -61,7 +60,6 @@ const SignIn = () => {
   return (
     <>
       <Container>
-        {/* <Navbar /> */}
         <FormWrap>
           <FormContent>
             <FormController action="#">

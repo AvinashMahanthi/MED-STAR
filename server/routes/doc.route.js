@@ -6,6 +6,7 @@ const keys = require("../keys");
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const requireLogin = require("../middlewares/requireLogin");
 
 router.get("/CreateDoctor", (req, res) => {
   res.send("This is Doctor signIn");
@@ -64,6 +65,30 @@ router.post("/CreateDoctor", (req, res) => {
     });
   });
   // console.log(registerUser);
+});
+
+router.get("/GetDoctors", (req, res) => {
+  Doctor.find()
+    .populate("_id name specialization experience consultationFee")
+    .then((doctors) => {
+      res.json({ doctors });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.get("/consult/:specialization", (req, res) => {
+  Doctor.find({ specialization: req.params.specialization })
+    .select("-password")
+    .then((doctor) => {
+      console.log(doctor);
+      return res.json({ doctor });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(422).json({ error: "Doctors not found!" });
+    });
 });
 
 module.exports = router;
