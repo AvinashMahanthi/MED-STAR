@@ -1,50 +1,22 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
+  display: grid;
+  z-index: 1;
+  height: auto;
   width: 100%auto;
+  margin-top: 5rem;
+  padding: 0 24px;
   justify-content: center;
+  margin-left: 4rem;
+  margin-right: 4rem;
 
   @media screen and (max-width: 768px) {
     height: 1100px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
   }
 
   @media screen and (max-width: 480px) {
     height: 1300px;
-
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  @media screen and (max-width: 320px) {
-    height: 1300px;
-    margin: 10px;
-  }
-`;
-
-export const ImgContainer = styled.div`
-  width: 100%auto;
-  // height: 500px;
-  // position: absolute;
-  // z-index: 1;
-  minheight: "15.66667vw";
-  height: "15.66667vw";
-  padding: "0 1rem";
-  @media screen and (max-width: 768px) {
-    height: 1100px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 1300px;
-
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  @media screen and (max-width: 320px) {
-    height: 1300px;
-    margin: 10px;
   }
 `;
 
@@ -88,6 +60,7 @@ export const SearchCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
+  max-height: 250px;
   padding: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -105,13 +78,9 @@ export const SearchIcon = styled.img`
   margin-bottom: 10px;
 `;
 export const SearchH1 = styled.h1`
-  font-size: 1rem;
-  color: #1167b1;
-  line-height: 16px;
-  font-weight: 600;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 64px;
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;
@@ -124,4 +93,5 @@ export const SearchH2 = styled.h2`
 
 export const SearchP = styled.p`
   font-size: 1rem;
+  text-align: center;
 `;

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import {
@@ -13,9 +14,12 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { animateScroll as scroll } from "react-scroll";
+// import { UserContext } from "../../App";
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, dynamic }) => {
   const [scrollNav, setScrollNav] = useState(false);
+  // const { state, dispatch } = useContext(UserContext);
+  // const history = useHistory();
   const changeNav = () => {
     if (window.scrollY >= 80) {
       setScrollNav(true);
@@ -37,7 +41,12 @@ const Navbar = ({ toggle }) => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
-            <NavLogo scrollNav={scrollNav} to="/" onClick={toggleHome}>
+            <NavLogo
+              scrollNav={scrollNav}
+              to="/"
+              onClick={toggleHome}
+              styles={{ color: !dynamic ? { color: "black" } : {} }}
+            >
               MedStar
             </NavLogo>
             <MobileIcon onClick={toggle}>
@@ -109,12 +118,24 @@ const Navbar = ({ toggle }) => {
                 </NavLinks>
               </NavItem>
             </NavMenu>
+            {/* {state ? "/" : "/signIn"} */}
             <NavBtn>
               <NavBtnLink to="/signin">Sign In</NavBtnLink>
             </NavBtn>
             <NavBtn>
               <NavBtnLink to="/signup">Sign Up</NavBtnLink>
             </NavBtn>
+            {/* <NavBtn>
+              <NavBtnLink
+                onClick={() => {
+                  localStorage.clear();
+                  dispatch({ type: "CLEAR" });
+                  history.push("/signin");
+                }}
+              >
+                Logout
+              </NavBtnLink>
+            </NavBtn> */}
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

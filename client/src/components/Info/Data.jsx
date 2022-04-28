@@ -16,6 +16,7 @@ export const homeObjOne = {
   dark: true,
   primary: true,
   darkText: false,
+  href: "home",
 };
 
 export const homeObjTwo = {
@@ -34,6 +35,7 @@ export const homeObjTwo = {
   dark: false,
   primary: false,
   darkText: true,
+  href: "https://medstar-blogs.herokuapp.com",
 };
 
 export const homeObjThree = {
@@ -51,4 +53,5 @@ export const homeObjThree = {
   alt: "car",
   primary: false,
   darkText: true,
+  href: "/SignIn",
 };

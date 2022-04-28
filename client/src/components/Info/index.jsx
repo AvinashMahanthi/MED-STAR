@@ -30,6 +30,7 @@ const Info = ({
   primary,
   dark,
   dark2,
+  href,
 }) => {
   return (
     <>
@@ -43,7 +44,7 @@ const Info = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
-                    to="home"
+                    href={href}
                     smooth={true}
                     duration={500}
                     spy={true}

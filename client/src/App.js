@@ -9,13 +9,12 @@ import {
 import Home from "./pages";
 import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
+import specialists from "./pages/specialists";
 import Consult from "./pages/consult";
+import Confirm_Booking from "./pages/Confirm_booking";
 
-import { reducer, initialState } from "./reducers/userReducer";
+// import { reducer, initialState } from "./reducers/userReducer";
 
-// import "bootstrap/dist/css/bootstrap.css";
-// import "bootstrap/dist/js/bootstrap.min.js";
-// import "bootstrap/dist/js/bootstrap.bundle";
 export const UserContext = createContext();
 
 const Routing = () => {
@@ -30,7 +29,6 @@ const Routing = () => {
       history.push("/SignIn");
     }
   }, []);
-
   return 0;
 };
 
@@ -41,7 +39,9 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/signin" component={SigninPage} exact />
         <Route path="/signup" component={SignupPage} exact />
+        <Route path="/specialists" component={specialists} exact />
         <Route path="/consult" component={Consult} exact />
+        <Route path="/Confirm_Booking" component={Confirm_Booking} exact />
       </Switch>
     </Router>
   );
