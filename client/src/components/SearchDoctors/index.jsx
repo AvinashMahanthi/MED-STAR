@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import {
@@ -8,7 +8,6 @@ import {
   SearchCard,
   SearchContainer,
   SearchWrapper,
-  SearchH1,
   MainContainer,
   ImgContainer,
 } from "./SearchDoctorsElements";
@@ -155,7 +154,13 @@ const SearchDoctors = () => {
                         <strong>₹{item.consultationFee}</strong>Consultation fee
                         at Clinic
                       </SearchP>
-                      <Button>Book Appointment</Button>
+                      <Button
+                        onClick={() => {
+                          history.push("/confirm_Booking");
+                        }}
+                      >
+                        Book Appointment
+                      </Button>
                     </div>
                   </div>
                 </div>
