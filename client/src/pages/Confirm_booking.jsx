@@ -14,7 +14,7 @@ const Consult = () => {
     <div>
       <Confirm_Booking />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

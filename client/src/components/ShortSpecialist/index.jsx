@@ -93,7 +93,7 @@ const ShortSpecialist = () => {
             {Data.map((item) => {
               return (
                 <SearchCard
-                  key={item._id}
+                  key={item.Header}
                   onClick={() => {
                     proceedToDoctors(item.specialization);
                   }}
