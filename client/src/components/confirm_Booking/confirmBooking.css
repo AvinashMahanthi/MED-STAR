@@ -1,0 +1,29 @@
+.form{
+    margin: 2rem 10rem;
+    width: 80%;
+    max-height: 45rem;
+    padding: 2rem;
+    box-shadow: 3px 3px 3px 3px #888888;
+}
+
+/* .submit-button{
+    border-radius: .5rem;
+} */
+
+.icon{
+    /* color: green; */
+    padding: 10px;
+    padding-right: 10px;
+}
+
+strong{
+    padding: 10px;
+}
+
+.check-box{
+    padding-top: 10px;
+}
+
+h6{
+    padding: 10px 0;
+}

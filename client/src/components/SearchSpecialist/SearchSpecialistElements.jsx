@@ -1,58 +1,32 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
+  display: grid;
+  z-index: 1;
+  height: auto;
   width: 100%auto;
+  margin-top: 5rem;
+  padding: 0 24px;
   justify-content: center;
-  margin-left: 4rem;
-  margin-right: 4rem;
 
   @media screen and (max-width: 768px) {
     height: 1100px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
   }
 
   @media screen and (max-width: 480px) {
     height: 1300px;
-
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  @media screen and (max-width: 320px) {
-    height: 1300px;
-    margin: 10px;
   }
 `;
 
-// height: 500px;
-// position: absolute;
-// z-index: 1;
-export const ImgContainer = styled.div`
-  width: 100%auto;
-
-  minheight: "15.66667vw";
-  height: "15.66667vw";
-  padding: "0 1rem";
-  @media screen and (max-width: 768px) {
-    height: 1100px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 1300px;
-
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  @media screen and (max-width: 320px) {
-    height: 1300px;
-    margin: 10px;
-  }
+export const ImageConatiner = styled.div`
+  background-color: blue;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
 `;
 
 export const SearchContainer = styled.div`
-  width: 70%;
+  width: 100%;
   height: 100%;
   white-space: nowrap;
   align-items: center;
@@ -69,7 +43,7 @@ export const SearchContainer = styled.div`
 
 export const SearchWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 15px;
   padding: 0 50px;
@@ -83,17 +57,18 @@ export const SearchWrapper = styled.div`
     padding: 0 20px;
   }
 `;
-//align-items: center;
+
 export const SearchCard = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   border-radius: 10px;
-  padding: 2rem;
+  max-height: 250px;
+  padding: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
-  margin: 1rem
 
   &:hover {
     transform: scale(1.02);
@@ -103,20 +78,14 @@ export const SearchCard = styled.div`
 `;
 
 export const SearchIcon = styled.img`
-  height: 12rem;
-  width: 12rem;
+  height: 140px;
+  width: 140px;
   margin-bottom: 10px;
-  align-items: start;
-  border-radius: 1rem;
 `;
 export const SearchH1 = styled.h1`
-  font-size: 1rem;
-  color: #1167b1;
-  line-height: 16px;
-  font-weight: 600;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 64px;
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;
@@ -129,4 +98,5 @@ export const SearchH2 = styled.h2`
 
 export const SearchP = styled.p`
   font-size: 1rem;
+  text-align: center;
 `;
