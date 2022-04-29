@@ -18,8 +18,8 @@ const Consult = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar dynamic={false} />
       <SearchDoctors />
-
-      <Footer />
+      {/* 
+      <Footer /> */}
     </div>
   );
 };

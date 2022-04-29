@@ -8,8 +8,6 @@ export const MainContainer = styled.div`
   margin-top: 5rem;
   padding: 0 24px;
   justify-content: center;
-  margin-left: 4rem;
-  margin-right: 4rem;
 
   @media screen and (max-width: 768px) {
     height: 1100px;
@@ -18,6 +16,13 @@ export const MainContainer = styled.div`
   @media screen and (max-width: 480px) {
     height: 1300px;
   }
+`;
+
+export const ImageConatiner = styled.div`
+  background-color: blue;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
 `;
 
 export const SearchContainer = styled.div`

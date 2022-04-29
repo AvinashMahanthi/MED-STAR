@@ -10,8 +10,10 @@ import {
   SearchWrapper,
   SearchH1,
   MainContainer,
+  ImageConatiner,
 } from "./SearchSpecialistElements";
 import { Data } from "./Data";
+import Consult_Doc_Header from "../../images/Consult_Doc_Header.jpg";
 
 const Sexologist = require("../../images/SpecalityImages/Sexologist.jfif");
 const ENT_Specialist = require("../../images/SpecalityImages/ENT_Specialist.png");
@@ -70,6 +72,13 @@ const SearchSpecialist = () => {
   };
   return (
     <MainContainer>
+      <ImageConatiner className="">
+        <img
+          className="specialist-img"
+          src="https://kamehamehahealthandwellness.org/wp-content/uploads/2018/10/doctors-resource-collaborative-albuquerque-1600x530.jpg"
+          alt="doctors"
+        />
+      </ImageConatiner>
       <div className="row">
         <div className="col-md-8">
           <h4>
