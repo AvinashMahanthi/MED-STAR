@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import {
@@ -8,13 +8,14 @@ import {
   SearchCard,
   SearchContainer,
   SearchWrapper,
-  SearchH1,
   MainContainer,
   ImgContainer,
 } from "./SearchDoctorsElements";
 // import { Data } from "./Data";
 import doc from "../../images/doc.png";
 import header_img from "../../images/consult-header.png";
+import { BsFillCheckCircleFill } from "react-icons/bs";
+import { RiCustomerServiceFill } from "react-icons/ri";
 
 const SearchDoctors = () => {
   const history = useHistory();
@@ -123,32 +124,51 @@ const SearchDoctors = () => {
         />
       </ImgContainer>
 
-      <div className="row">
-        <SearchContainer>
-          <SearchWrapper>
-            {/* <SearchH1>SearchDoctors</SearchH1> */}
-            {doctors.map((item) => {
-              // console.log(item);
-              // console.log("next step");
-              return (
-                <SearchCard key={item._id}>
-                  <SearchIcon src={doc} />
-                  <SearchH1>{item.name}</SearchH1>
-                  <SearchP>{item.specialization}</SearchP>
-                  <SearchP>{item.experience} Yrs experience over all</SearchP>
-                  <h6>
-                    <strong>Address: </strong>
-                  </h6>
-                  <SearchP>Old Mahabalipuram Road, Chennai</SearchP>
-                  <SearchP>
-                    ₹{item.consultationFee} Consultation fee at Clinic
-                  </SearchP>
-                </SearchCard>
-              );
-            })}
-          </SearchWrapper>
-        </SearchContainer>
-      </div>
+      <SearchContainer>
+        <SearchWrapper>
+          {doctors.map((item) => {
+            return (
+              <SearchCard key={item._id}>
+                <div className="Container">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <SearchIcon src={doc} />
+                      <SearchH2>
+                        <br />
+                        <RiCustomerServiceFill size={25} />
+                        Telugu, Hindhi and English
+                      </SearchH2>
+                    </div>
+                    <div className="col-md-6">
+                      <SearchP>{item.name}</SearchP>
+                      <SearchP>
+                        {item.specialization}{" "}
+                        <BsFillCheckCircleFill style={{ color: "green" }} />
+                      </SearchP>
+                      <SearchP>
+                        {item.experience} Yrs experience over all
+                      </SearchP>
+                      <strong>Address: </strong>
+                      <SearchP>Old Mahabalipuram Road, Chennai</SearchP>
+                      <SearchP>
+                        <strong>₹{item.consultationFee}</strong>Consultation fee
+                        at Clinic
+                      </SearchP>
+                      <Button
+                        onClick={() => {
+                          history.push("/confirm_Booking");
+                        }}
+                      >
+                        Book Appointment
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </SearchCard>
+            );
+          })}
+        </SearchWrapper>
+      </SearchContainer>
     </MainContainer>
   );
 };
