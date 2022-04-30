@@ -8,7 +8,6 @@ import {
   SearchCard,
   SearchContainer,
   SearchWrapper,
-  SearchH1,
   MainContainer,
   ImageConatiner,
 } from "./SearchSpecialistElements";

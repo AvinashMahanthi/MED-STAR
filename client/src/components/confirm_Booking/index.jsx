@@ -89,7 +89,7 @@ const Confirm_Booking = () => {
             <Form.Label>Doctors Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="{Doctors Name - Disabled}"
+              placeholder="{Doctors Name} - DR. Prana Roy"
               value={doctorName}
               onChange={(e) => setDoctorName(e.target.value)}
             />
@@ -99,7 +99,7 @@ const Confirm_Booking = () => {
             <Form.Label>Specialist</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Gynaclolgist"
+              placeholder="Paediatrician "
               value={specialization}
               onChange={(e) => setSpecialization(e.target.value)}
             />
@@ -108,7 +108,7 @@ const Confirm_Booking = () => {
         <h6>
           Specialist:
           <strong>
-            Gynacologist <BsFillCheckCircleFill style={{ color: "green" }} />
+            Paediatrician <BsFillCheckCircleFill style={{ color: "green" }} />
           </strong>{" "}
           <br />
         </h6>
