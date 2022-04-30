@@ -12,6 +12,7 @@ import SignupPage from "./pages/signup";
 import specialists from "./pages/specialists";
 import Consult from "./pages/consult";
 import Confirm_Booking from "./pages/Confirm_booking";
+import ShowAllDoctors from "./components/ShowAllDoctors";
 
 // import { reducer, initialState } from "./reducers/userReducer";
 
@@ -41,7 +42,8 @@ function App() {
         <Route path="/signup" component={SignupPage} exact />
         <Route path="/specialists" component={specialists} exact />
         <Route path="/consult" component={Consult} exact />
-        <Route path="/Confirm_Booking" component={Confirm_Booking} exact />
+        <Route path="/confirm_Booking" component={Confirm_Booking} exact />
+        <Route path="/doctors" component={ShowAllDoctors} exact />
       </Switch>
     </Router>
   );
